@@ -37,7 +37,7 @@ class TaskController extends Controller
             ], 404);
         }
 
-        return response()->json($_task);
+        return response()->json($_task::with('user', 'priority')->get());
     }
 
     /**
