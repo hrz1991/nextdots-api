@@ -23,8 +23,8 @@ class CreateTasksTable extends Migration
             $table->integer('user_id');
             $table->integer('priority_id');
 
-            //$table->foreign('users_id')->references('id')->on('users');
-            //$table->foreign('priorities_id')->references('id')->on('priorities');
+            //$table->foreign('user_id')->references('id')->on('users');
+            //$table->foreign('priority_id')->references('id')->on('priorities');
         });
     }
 

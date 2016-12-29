@@ -23,7 +23,6 @@ $app->get('/', function () use ($app) {
 */
 
 $app->get('users/create/admin', 'UserController@createAdmin');
-
 $app->group(['middleware' => 'auth:api'], function($app)
 {
     $app->get('/test', function() {
@@ -49,24 +48,39 @@ $app->post('auth/login', 'AuthController@postLogin');
 |--------------------------------------------------------------------------
 */
 
-// Users
 
-// Tasks
+$app->group(['middleware' => ['auth:api', 'cors']], function($app)
+{
 
-$app->get('/tasks', 'TaskController@index');
-$app->get('/tasks/{id}', 'TaskController@show');
-$app->post('/tasks', 'TaskController@store');
-$app->put('/tasks/{id}', 'TaskController@update');
-$app->delete('/tasks/{id}', 'TaskController@destroy');
+	// Users
+
+	$app->get('/users', 'UserController@index');
+	$app->get('/users/{id}', 'UserController@show');
+	$app->post('/users', 'UserController@store');
+	$app->put('/users/{id}', 'UserController@update');
+	$app->delete('/users/{id}', 'UserController@destroy');
 
 
-// Priorities
+	// Tasks
 
-$app->get('/priorities', 'PriorityController@index');
-$app->get('/priorities/{id}', 'PriorityController@show');
-$app->post('/priorities', 'PriorityController@store');
-$app->put('/priorities/{id}', 'PriorityController@update');
-$app->delete('/priorities/{id}', 'PriorityController@destroy');
+	$app->get('/tasks', 'TaskController@index');
+	$app->get('/tasks/{id}', 'TaskController@show');
+	$app->post('/tasks', 'TaskController@store');
+	$app->put('/tasks/{id}', 'TaskController@update');
+	$app->delete('/tasks/{id}', 'TaskController@destroy');
+
+
+	// Priorities
+
+	$app->get('/priorities', 'PriorityController@index');
+	$app->get('/priorities/{id}', 'PriorityController@show');
+	$app->post('/priorities', 'PriorityController@store');
+	$app->put('/priorities/{id}', 'PriorityController@update');
+	$app->delete('/priorities/{id}', 'PriorityController@destroy');
+
+
+});
+
 
 
 
