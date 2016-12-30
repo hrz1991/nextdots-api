@@ -96,7 +96,6 @@ class TaskController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request, [
             'title' => 'required|max:255',
             'description' => 'required',

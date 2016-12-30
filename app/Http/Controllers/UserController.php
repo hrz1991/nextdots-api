@@ -18,7 +18,6 @@ class UserController extends Controller
      */
     public function createAdmin()
     {
-
         $_new = new User();
 
         $_new->rol_id = 1;
@@ -100,7 +99,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $this->validate($request, [
             'rol_id' => 'required|integer',
             'firstname' => 'required|min:3',

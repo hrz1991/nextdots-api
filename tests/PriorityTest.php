@@ -19,7 +19,6 @@ class PriorityTest extends TestCase
 
     public function testPostPriority()
     {
-
         $_response = $this->call('POST', '/auth/login', $this->_params);
         $_json = json_decode($_response->getContent()); 
 
@@ -46,9 +45,7 @@ class PriorityTest extends TestCase
         $_response = $this->call('POST', '/auth/login', $this->_params);
         $_json = json_decode($_response->getContent()); 
 
-        $_response = $this->call('POST', 'priorities', [
-            "test"    => "Test"
-        ], [], [], [
+        $_response = $this->call('POST', 'priorities', [], [], [], [
             'HTTP_AUTHORIZATION' => "Bearer ".$_json->token
         ]);
 
